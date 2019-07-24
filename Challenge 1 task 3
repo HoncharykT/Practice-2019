@@ -1,0 +1,22 @@
+package Сhallange1;
+
+import java.util.Scanner;
+
+public class task3 {
+	public static void main(String[] args) {
+int x=3, y=0;
+int xa, ya, xb, yb;
+Scanner in=new Scanner(System.in);
+System.out.println("Введіть координати першої точки");
+xa=in.nextInt();
+ya=in.nextInt();
+System.out.println("Введіть координати другої точки");
+xb=in.nextInt();
+yb=in.nextInt();
+double A=Math.acos((x*xa+y*ya)/(Math.sqrt(x*x+y*y)*Math.sqrt(xa*xa+ya*ya)));
+double B=Math.acos((x*xb+y*yb)/(Math.sqrt(x*x+y*y)*Math.sqrt(xb*xb+yb*yb)));
+System.out.print("Більший кут з віссю ОХ утворює відрізок ");
+if(A>B) System.out.println("OA");
+else System.out.println("OB");
+}
+}
