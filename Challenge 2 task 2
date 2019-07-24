@@ -1,0 +1,46 @@
+package Challange2;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class task2 {
+	public static void main(String[] args) {
+		Scanner in=new Scanner(System.in);
+		System.out.println("Введіть шлях до файлу");
+		String way=in.nextLine();
+		System.out.println("Введіть слово");
+		String word=in.nextLine();
+		System.out.println("Оберіть режим 1-за замовчуванням, 2-точне співпадіння");
+		int mode=in.nextInt();
+		String text="";
+		try(FileReader reader = new FileReader(way))
+	    {
+	        int c;
+	        while((c=reader.read())!=-1){
+
+	            text=text+(char)c;
+	        }
+	    }
+	    catch(IOException ex){
+
+	        System.out.println(ex.getMessage());
+	    }
+		if(mode==2){
+			word=word+" ";
+		}
+		boolean f=true; int k=0;
+		for(int i=0;i<text.length();i++){
+			for(int j=0;j<word.length();j++){
+				if (text.charAt(i)!=word.charAt(j)){
+					f=false;
+					break;
+				}
+				if(j==word.length() && f){
+					k++;
+				}
+			}
+		}
+		System.out.println("Слово "+word+" входить в текст "+k+" разів");
+	}
+}
